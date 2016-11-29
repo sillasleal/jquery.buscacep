@@ -1,0 +1,28 @@
+{
+  "name": "jquery.buscacep",
+  "version": "1.0.0",
+  "description": "Plugin JQuery para a busca de ceps.",
+  "main": "dist/jquery.buscacep.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://sillasleal@github.com/sillasleal/jquery.buscacep.git"
+  },
+  "author": "Sillas S. Leal <sillas.s.leal@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sillasleal/jquery.buscacep/issues"
+  },
+  "homepage": "https://github.com/sillasleal/jquery.buscacep#readme",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-jsmin": "^0.1.5",
+    "gulp-minify": "0.0.14",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.11"
+  }
+}

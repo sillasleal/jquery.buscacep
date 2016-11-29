@@ -5,7 +5,7 @@
     "Sillas S. Leal <sillas.s.leal@gmail.com>"
   ],
   "description": "Plugin JQuery para a busca de ceps.",
-  "main": "jquery.buscacep.js",
+  "main": "dist/jquery.buscacep.js",
   "keywords": [
     "cep",
     "buscarcep",

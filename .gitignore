@@ -2,3 +2,5 @@
 /bower_components/
 /requisitos
 /src/testes/
+/node_modules/
+/npm-debug.log
