@@ -114,7 +114,7 @@ $.fn.buscacep = function (config) {
                 options.targets.estado = config.targets.estado;
             }
         }
-    }
+    } 
 
     /**
      * 
