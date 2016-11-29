@@ -1,0 +1,26 @@
+{
+  "name": "jquery.buscacep",
+  "version": "1.0",
+  "authors": [
+    "Sillas S. Leal <sillas.s.leal@gmail.com>"
+  ],
+  "description": "Plugin JQuery para a busca de ceps.",
+  "main": "jquery.buscacep.js",
+  "keywords": [
+    "cep",
+    "buscarcep",
+    "jquery.buscacep"
+  ],
+  "license": "GPL3",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~3.*"
+  }
+}
