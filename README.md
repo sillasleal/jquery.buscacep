@@ -45,7 +45,6 @@ $("input_ou_text_para_a_busca").buscacep();
 As classes dos componentes filhos do container que receberão os dados recebidos são:
 
 ```css
-.buscacep-cep        /* Componente que recebe o cep para a busca */
 .buscacep-logradouro /* Componente que recebe a rua(logradouro) */
 .buscacep-bairro     /* Componente que recebe o bairro */
 .buscacep-cidade     /* Componente que recebe a cidade */
