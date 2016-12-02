@@ -1,5 +1,6 @@
 # jquery.buscacep
 Plugin JQuery para a busca de ceps. Utiliza a API http://api.postmon.com.br/v1/cep para as consultas.
+Veja a API em http://postmon.com.br/ e contribua com o projeto em https://github.com/PostmonAPI/postmon .
 
 ## Como instalar:
 
