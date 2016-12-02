@@ -5,7 +5,7 @@ Veja a API em http://postmon.com.br/ e contribua com o projeto em https://github
 ## Como instalar:
 
 ```bash
-bower install jquery.nuscacep
+bower install jquery.buscacep
 ```
 
 ## Como usar:
