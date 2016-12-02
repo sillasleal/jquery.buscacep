@@ -121,7 +121,7 @@ As classes dos componentes filhos do container que receberão os dados recebidos
 $(".cep").buscacep(options);
 ```
 * [options] - Objeto contendo as configurações da busca.
-    * [container] - String ou seletor DOM contendo o container pai dos itens alvo da busca. Por padrão é usada a classe "buscacep-container".
+    * [container] - String ou seletor DOM contendo o container pai dos itens alvo da busca. Por padrão é usada a classe "buscacep-container". Esta classe permite usar uma única configuração para varios campos de busca em sua aplicação.
     * [trigger]   - Objeto que aciona o evento de busca de cep.
         * [seletor]    - O componente que irá iniciar a busca. Por padrão, a busca é inciada quando o cep estiver completo.
         * [event]      - O evento que serve como gatilho do componente do seletor para iniciar a busca.
