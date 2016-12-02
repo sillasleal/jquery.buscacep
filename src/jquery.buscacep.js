@@ -63,7 +63,7 @@ $.fn.buscacep = function (config) {
             onStart: function (cep) {},
             onLoad: function (data) {},
             onEnd: function () {},
-            onError: function (msg, error) {}
+            onError: function (error) {}
         },
         targets: {}
     };
@@ -166,7 +166,7 @@ $.fn.buscacep = function (config) {
                     $(options.targets.cidade).val(resposta.cidade);
                     $(options.targets.estado).val(resposta.estado);
                 } else {
-                    options.events.onError("Os dados retornados nao são válidos ", resposta);
+                    options.events.onError(resposta);
                 }
                 buscando = false;
                 $(options.onLoad.target).removeClass(options.onLoad.class);
@@ -174,7 +174,7 @@ $.fn.buscacep = function (config) {
             }).fail(function (error) {
                 buscando = false;
                 $(options.onLoad.target).removeClass(options.onLoad.class);
-                options.events.onError("Ocorreu um erro ao tentar buscar o cep: ", error);
+                options.events.onError(error);
             });
         }
     });

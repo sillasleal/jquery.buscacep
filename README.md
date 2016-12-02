@@ -74,7 +74,7 @@ As classes dos componentes filhos do container que receberão os dados recebidos
             onEnd: function () {
                 console.log("Busca concluída");
             },
-            onError: function (msg, error) {
+            onError: function (error) {
                 console.log(msg + error);
             }
         },
@@ -160,7 +160,7 @@ $(".cep").buscacep(options);
         * [onStart]    - Função executada ao iniciar da busca. Recebe como argumento o cep enviado para a busca. Só é executada quando houver um cep válido no componente cep.
         * [onLoad]     - Função executada quando for recebida a resposta do servidor. Recebe os dados retornados pelo servidor.
         * [onEnd]      - Função executada ao termino da busca.
-        * [onError]    - Função executada caso ocorra algum erro na busca. Recebe como parametros a mensagem de erro e o objeto retornado pelo erro.
+        * [onError]    - Função executada caso ocorra algum erro na busca. Recebe como parametro o objeto retornado pelo erro.
     * [targets]   - Objeto contendo os componentes que irão receber os dados retornados. Podem ser Strings ou objetos DOM.
         * [logradouro] - O componente que irá receber a rua(logradouro).
         * [bairro]     - O componente que irá receber o bairro.
