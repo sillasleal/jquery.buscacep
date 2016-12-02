@@ -42,7 +42,7 @@ $("input_ou_text_para_a_busca").buscacep();
 </div>
 ```
 
-Os componentes filhos são que receberão os dados recebidos:
+As classes dos componentes filhos do container que receberão os dados recebidos são:
 
 ```css
 .buscacep-cep        /* Componente que recebe o cep para a busca */
