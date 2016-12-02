@@ -14,7 +14,7 @@ bower install jquery.nuscacep
 Após a busca os dados serão inseridos nos componentes filhos do container ".buscacep-container". Este container é pai do input ".buscacep-cep" responsável por receber o cep a ser buscado.
 
 ```javascript
-$("input_ou_text_para_a_busca").buscacep();
+$(".buscacep-cep").buscacep();
 ```
 
 ```html
@@ -156,7 +156,7 @@ $(".cep").buscacep(options);
     * **onLoad**    - Objeto contendo o componente que será alterado durante a busca.
         * **target**     - O componente que receberá a classe definida em options.onLoad.class . A classe é removida após o termino da busca. O componente padrão é o componente de cep usado na busca.
         * **class**      - A classe que será adicionada ao componente alvo. A classe padrão é "disabled".
-    * events    - Eventos iniciados durante a execução da busca.
+    * **events**    - Eventos iniciados durante a execução da busca.
         * **onStart**    - Função executada ao iniciar da busca. Recebe como argumento o cep enviado para a busca. Só é executada quando houver um cep válido no componente cep.
         * **onLoad**     - Função executada quando for recebida a resposta do servidor. Recebe os dados retornados pelo servidor.
         * **onEnd**      - Função executada ao termino da busca.
