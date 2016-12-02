@@ -12,7 +12,7 @@
     "jquery.buscacep"
   ],
   "license": "GPL-3.0",
-  "homepage": "",
+  "homepage": "https://github.com/sillasleal/jquery.buscacep",
   "ignore": [
     "**/.*",
     "node_modules",
