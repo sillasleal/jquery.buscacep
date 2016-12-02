@@ -20,22 +20,37 @@
  * @returns {undefined}
  */
 $.fn.buscacep = function (config) {
-    /*{"bairro": "Guararapes", "cidade": "Jaboat\u00e3o dos Guararapes", "cep": "54315390", "logradouro": "Rua Dom Expedito Lopes (Com.Garapeira)", "estado_info": {"area_km2": "98.076,109", "codigo_ibge": "26", "nome": "Pernambuco"}, "cidade_info": {"area_km2": "258,694", "codigo_ibge": "2607901"}, "estado": "PE"}*/
+    
+    /**
+     * 
+     * @type String URL da API responsável pela busca
+     */
+    var api = "https://api.postmon.com.br/v1/cep/";
+
+    /**
+     * 
+     * @type Boolean VAriável que impede a execução de multiplas consultas simultaneas para o mesmo componente.
+     */
+    var buscando = false;
+
     /**
      * 
      * @type {object} O component referente ao cep
      */
     var seletor = $(this);
+
     /**
      * 
      * @type jQuery Objeto container que comporta os componentes
      */
-    var pai = $(seletor).closest(".buscacep-container");
+    var pai;
+
     /**
      * 
      * @type {object} Objeto contendo as definições padrão de execução do plugin
      */
     var options = {
+        container: $(seletor).closest(".buscacep-container"),
         trigger: {
             seletor: $(this),
             event: "change"
@@ -45,27 +60,21 @@ $.fn.buscacep = function (config) {
             target: $(this)
         },
         events: {
-            onStart: function (cep) {
-                console.log("Buscando o cep " + cep);
-            },
-            onLoad: function (cep, data) {
-                console.log("Carregado os dados do cep " + cep + ": " + data);
-            },
-            onEnd: function () {
-                console.log("Busca concluída");
-            },
-            onError: function (msg, error) {
-                console.log(msg + error);
-            }
+            onStart: function (cep) {},
+            onLoad: function (data) {},
+            onEnd: function () {},
+            onError: function (msg, error) {}
         },
-        targets: {
-            logradouro: pai.find(".buscacep-logradouro"),
-            bairro: pai.find(".buscacep-bairro"),
-            cidade: pai.find(".buscacep-cidade"),
-            estado: pai.find(".buscacep-estado")
-        }
+        targets: {}
     };
+
+    /* Definindo as configurações de execução */
     if (config !== undefined) {
+        /* Verificando se foi informado um container pai */
+        if (config.container !== undefined) {
+            options.container = config.container;
+        }
+        
         /* Verificando se foram informadas configurações relacionadas ao componente de gatilho */
         if (config.trigger !== undefined) {
             if (config.trigger.seletor !== undefined) {
@@ -75,6 +84,7 @@ $.fn.buscacep = function (config) {
                 options.trigger.event = config.trigger.event;
             }
         }
+        
         /* Definindo as configurações relacionadas a edição em tempo real do componente */
         if (config.onLoad !== undefined) {
             if (config.onLoad.class !== undefined) {
@@ -84,6 +94,7 @@ $.fn.buscacep = function (config) {
                 options.onLoad.target = config.onLoad.target;
             }
         }
+        
         /* Atribuindo os eventos de início e fim da execução */
         if (config.events !== undefined) {
             if (typeof (config.events.onStart) === "function") {
@@ -99,6 +110,24 @@ $.fn.buscacep = function (config) {
                 options.events.onError = config.events.onError;
             }
         }
+    }
+    
+    /* Definindo o container pai da busca */
+    pai = $(options.container);
+    if (!pai.length) {
+        /* Caso a classe container não exista */
+        pai = $("body");
+    }
+    
+    options.targets = {
+        logradouro: pai.find(".buscacep-logradouro"),
+        bairro: pai.find(".buscacep-bairro"),
+        cidade: pai.find(".buscacep-cidade"),
+        estado: pai.find(".buscacep-estado")
+    };
+    
+    /* Definindo a segunda parte das atribuições */
+    if (config !== undefined) {
         /* Verificando se foram definidos alvos fora do container */
         if (config.targets !== undefined) {
             if (config.targets.logradouro !== undefined) {
@@ -114,31 +143,23 @@ $.fn.buscacep = function (config) {
                 options.targets.estado = config.targets.estado;
             }
         }
-    } 
-
-    /**
-     * 
-     * @type Boolean VAriável que impede a execução de multiplas consultas simultaneas para o mesmo componente.
-     */
-    var buscando = false;
+    }
 
     /* Definindo o evento */
     $(options.trigger.seletor).on(options.trigger.event, function () {
-        console.log("jquery.buscacep - GPL-3.0 https://github.com/sillasleal/jquery.buscacep");
         /**/
-        var cep = $(seletor).val().replace(/[^\d]+/g, '');
-        var api = "https://api.postmon.com.br/v1/cep/";
+        var cep = $(seletor).val().replace(/[^\d]+/g, '');        
         if (cep.length === 8 && !buscando) {
             buscando = false;
             $(options.onLoad.target).addClass(options.onLoad.class);
             options.events.onStart(cep);
             /* Realizando a busca */
             $.getJSON(api + cep).done(function (resposta) {
-                options.events.onLoad(cep, resposta);
+                options.events.onLoad(resposta);
                 if (
                         typeof (resposta) === "object" &&
                         Object.keys(resposta).length > 0
-                        ) {
+                    ) {
                     /* A resposta é válida, preenche os dados */
                     $(options.targets.logradouro).val(resposta.logradouro);
                     $(options.targets.bairro).val(resposta.bairro);
