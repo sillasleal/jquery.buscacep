@@ -8,6 +8,12 @@ Veja a API em http://postmon.com.br/ e contribua com o projeto em https://github
 bower install jquery.buscacep
 ```
 
+ou
+
+```bash
+bower install jquery.buscacep --save
+```
+
 ## Como usar:
 
 ### Sem informar configurações
