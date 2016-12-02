@@ -18,7 +18,7 @@ $("input_ou_text_para_a_busca").buscacep();
 ```
 
 ```html
-<div class="buscacep-container"><!-- Classe container padrão, obrigatória para execução sem parametros -->
+<div class="buscacep-container">
     <div>
         <label>CEP</label>
         <input class="buscacep-cep" type="text"/>
