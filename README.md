@@ -148,21 +148,21 @@ As classes dos componentes filhos do container que receberão os dados recebidos
 ```javascript
 $(".cep").buscacep(options);
 ```
-* options - Objeto contendo as configurações da busca.
-    * container - String ou seletor DOM contendo o container pai dos itens alvo da busca. Por padrão é usada a classe "buscacep-container". Esta classe permite usar uma única configuração para varios campos de busca em sua aplicação.
-    * trigger   - Objeto que aciona o evento de busca de cep.
-        * seletor    - O componente que irá iniciar a busca. Por padrão, a busca é inciada quando o cep estiver completo.
-        * event      - O evento que serve como gatilho do componente do seletor para iniciar a busca.
-    * onLoad    - Objeto contendo o componente que será alterado durante a busca.
-        * target     - O componente que receberá a classe definida em options.onLoad.class . A classe é removida após o termino da busca. O componente padrão é o componente de cep usado na busca.
-        * class      - A classe que será adicionada ao componente alvo. A classe padrão é "disabled".
+* **options** - Objeto contendo as configurações da busca.
+    * **container** - String ou seletor DOM contendo o container pai dos itens alvo da busca. Por padrão é usada a classe "buscacep-container". Esta classe permite usar uma única configuração para varios campos de busca em sua aplicação.
+    * **trigger**   - Objeto que aciona o evento de busca de cep.
+        * **seletor**    - O componente que irá iniciar a busca. Por padrão, a busca é inciada quando o cep estiver completo.
+        * **event**      - O evento que serve como gatilho do componente do seletor para iniciar a busca.
+    * **onLoad**    - Objeto contendo o componente que será alterado durante a busca.
+        * **target**     - O componente que receberá a classe definida em options.onLoad.class . A classe é removida após o termino da busca. O componente padrão é o componente de cep usado na busca.
+        * **class**      - A classe que será adicionada ao componente alvo. A classe padrão é "disabled".
     * events    - Eventos iniciados durante a execução da busca.
-        * onStart    - Função executada ao iniciar da busca. Recebe como argumento o cep enviado para a busca. Só é executada quando houver um cep válido no componente cep.
-        * onLoad     - Função executada quando for recebida a resposta do servidor. Recebe os dados retornados pelo servidor.
-        * onEnd      - Função executada ao termino da busca.
-        * onError    - Função executada caso ocorra algum erro na busca. Recebe como parametro o objeto retornado pelo erro.
-    * targets   - Objeto contendo os componentes que irão receber os dados retornados. Podem ser Strings ou objetos DOM.
-        * logradouro - O componente que irá receber a rua(logradouro).
-        * bairro     - O componente que irá receber o bairro.
-        * cidade     - O componente que irá receber a cidade.
-        * estado     - O componente que irá receber o estado. É retornada apenas a sigla do estado.
+        * **onStart**    - Função executada ao iniciar da busca. Recebe como argumento o cep enviado para a busca. Só é executada quando houver um cep válido no componente cep.
+        * **onLoad**     - Função executada quando for recebida a resposta do servidor. Recebe os dados retornados pelo servidor.
+        * **onEnd**      - Função executada ao termino da busca.
+        * **onError**    - Função executada caso ocorra algum erro na busca. Recebe como parametro o objeto retornado pelo erro.
+    * **targets**   - Objeto contendo os componentes que irão receber os dados retornados. Podem ser Strings ou objetos DOM.
+        * **logradouro** - O componente que irá receber a rua(logradouro).
+        * **bairro**     - O componente que irá receber o bairro.
+        * **cidade**     - O componente que irá receber a cidade.
+        * **estado**     - O componente que irá receber o estado. É retornada apenas a sigla do estado.
